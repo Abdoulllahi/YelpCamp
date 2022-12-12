@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 12:09:20
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-12 15:31:41
+ * @ Modified time: 2022-12-12 15:46:50
  * @ Description:
  */
 
@@ -37,4 +37,6 @@ const seedDB = async () => {
         await camp.save();
     }
 };
-seedDB();
+seedDB().then(() => {
+    mongoose.connection.close();
+}) 
