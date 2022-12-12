@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 00:34:06
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-12 20:13:15
+ * @ Modified time: 2022-12-12 20:57:52
  * @ Description:
  */
 
@@ -34,7 +34,12 @@ app.get('/', (req, res) => {
 app.get('/campgrounds', async (req, res) => {
     const campgrounds = await Campground.find({});
     res.render('campgrounds/index', { campgrounds });
-})
+});
+
+app.get('/campgrounds/:id', async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    res.render('campgrounds/show', { campground });
+});
 
 app.listen(3000, () => {
     console.log('LISTENING ON PORT 3000!!!!')
