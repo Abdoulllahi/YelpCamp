@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 00:34:06
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-13 13:21:33
+ * @ Modified time: 2022-12-13 13:27:31
  * @ Description:
  */
 
@@ -65,6 +65,12 @@ app.put('/campgrounds/:id', async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
     res.redirect(`/campgrounds/${campground._id}`);
+});
+
+app.delete('/campgrounds/:id', async (req, res) => {
+    const { id } = req.params;
+    await Campground.findByIdAndDelete(id);
+    res.redirect('/campgrounds');
 });
 
 app.listen(3000, () => {

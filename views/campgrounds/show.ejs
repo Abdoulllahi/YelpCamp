@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 20:46:56
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-13 12:51:19
+ * @ Modified time: 2022-12-13 13:29:49
  * @ Description:
  -->
 
@@ -24,6 +24,9 @@
         <%=campground.location%>
     </h2>
     <p><a href="/campgrounds/<%=campground._id%>/edit">Edit</a></p>
+    <form action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
     <footer>
         <a href="/campgrounds">All campgrounds</a>
     </footer>
