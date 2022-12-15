@@ -2,21 +2,11 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 21:07:22
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-13 13:08:21
+ * @ Modified time: 2022-12-15 20:55:21
  * @ Description:
  -->
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Campground</title>
-</head>
-
-<body>
+<%layout('layouts/boilerplate')%>
     <form action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
         <div>
             <label for="title">Title</label>
@@ -29,6 +19,3 @@
         <button>Edit campground</button>
     </form>
     <a href="/campgrounds/<%=campground._id%> ">Back To Campground</a>
-</body>
-
-</html>

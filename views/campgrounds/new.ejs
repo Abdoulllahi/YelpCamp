@@ -2,21 +2,11 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 21:07:22
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-13 12:02:31
+ * @ Modified time: 2022-12-15 20:58:28
  * @ Description:
  -->
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Campground</title>
-</head>
-
-<body>
+<%layout('layouts/boilerplate')%>
     <form action="/campgrounds" method="POST">
         <div>
             <label for="title">Title</label>
@@ -29,6 +19,3 @@
         <button>Add campground</button>
     </form>
     <a href="/campgrounds">All campgrounds</a>
-</body>
-
-</html>
