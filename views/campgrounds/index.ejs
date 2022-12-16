@@ -2,18 +2,18 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 16:03:49
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-15 20:58:18
+ * @ Modified time: 2022-12-16 11:54:50
  * @ Description:
  -->
 <%layout('layouts/boilerplate')%>
-    <h1>All Campgrounds</h1>
-    <div>
-        <a href="/campgrounds/new">Add campground</a>
-    </div>
-    <ul>
-        <% for(let campground of campgrounds) {%>
-            <li><a href="/campgrounds/<%= campground._id%>">
-                    <%=campground.title%>
-                </a></li>
-            <% } %>
-    </ul>
+<h1>All Campgrounds</h1>
+<div>
+    <a href="/campgrounds/new">Add campground</a>
+</div>
+<ul>
+    <% for(let campground of campgrounds) {%>
+        <li><a href="/campgrounds/<%= campground._id%>">
+                <%=campground.title%>
+        </a></li>
+    <% } %>
+</ul>

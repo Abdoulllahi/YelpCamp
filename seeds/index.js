@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 12:09:20
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-12 15:46:50
+ * @ Modified time: 2022-12-16 12:03:12
  * @ Description:
  */
 
@@ -28,11 +28,14 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
-        random1000 = Math.floor(Math.random() * 1000);
-        // console.log(cities[random1000], random1000);
+        const random1000 = Math.floor(Math.random() * 1000);
+        const price = Math.floor(Math.random() * 50) + 75;
         const camp = new Campground({
+            title: `${sample(descriptors)} ${sample(places)}`,
+            image: 'https://source.unsplash.com/random/483251',
+            price: price,
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
-            title: `${sample(descriptors)} ${sample(places)}`
+            description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum nihil sit alias in'
         });
         await camp.save();
     }
