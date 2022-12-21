@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 00:57:22
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-16 11:29:09
+ * @ Modified time: 2022-12-21 11:10:23
  * @ Description:
  */
 
@@ -12,7 +12,7 @@ const Schema = mongoose.Schema;
 const CampgroundSchema = new Schema({
     title: String,
     image: String,
-    price: String,
+    price: Number,
     description: String,
     location: String
 });
