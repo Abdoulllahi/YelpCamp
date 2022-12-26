@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 00:34:06
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-21 12:03:11
+ * @ Modified time: 2022-12-26 15:30:10
  * @ Description:
  */
 
@@ -12,6 +12,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const catchAsync = require('./utils/catchAsync');
+const ExpressError = require('./utils/ExpressError');
 const methodOverride = require('method-override');
 const Campground = require('./models/campground');
 // const campground = require('./models/campground');
@@ -49,7 +50,7 @@ app.get('/campgrounds/new', async (req, res) => {
 });
 
 app.post('/campgrounds', catchAsync(async (req, res, next) => {
-
+    if (!req.body.campground) throw new ExpressError('Invalid Camground Data', 400);
     const campground = new Campground(req.body.campground);
     await campground.save();
     res.redirect(`/campgrounds/${campground._id}`)
@@ -77,8 +78,13 @@ app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
     res.redirect('/campgrounds');
 }));
 
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found!!!', 404));
+});
+
 app.use((err, req, res, next) => {
-    res.send("Oh boy, something went wrong!!")
+    const { statusCode = 500, message = 'Something went wrong' } = err;
+    res.status(statusCode).send(message);
 })
 
 app.listen(3000, () => {
