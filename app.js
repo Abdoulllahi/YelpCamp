@@ -2,7 +2,7 @@
  * @ Author: Abdou Lahi DIOP
  * @ Create Time: 2022-12-12 00:34:06
  * @ Modified by: Abdou Lahi DIOP
- * @ Modified time: 2022-12-26 15:30:10
+ * @ Modified time: 2022-12-26 16:07:20
  * @ Description:
  */
 
@@ -84,7 +84,8 @@ app.all('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'Something went wrong' } = err;
-    res.status(statusCode).send(message);
+    if (!err.message) err.message = 'Oh no, something went wrong!';
+    res.status(statusCode).render('error', { err });
 })
 
 app.listen(3000, () => {
